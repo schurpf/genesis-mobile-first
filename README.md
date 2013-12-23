@@ -1,5 +1,9 @@
-## Genesis Mobile First Theme ##
-This is "mobile-first" version of the [Genesis 2.0 Sample Theme](http://www.genesisframework.com/), with all media queries switched from max- to min-width for optimum mobile performance.
+# Genesis Mobile First Theme with Bootstrap and hisrc #
 
-* Learn more: [http://www.mightyminnow.com/2013/08/our-new-mobile-first-child-theme-for-genesis-2-0/](http://www.mightyminnow.com/2013/08/our-new-mobile-first-child-theme-for-genesis-2-0/)
-* See a demo: [http://www.demo.mightyminnow.com/genesis-mobile-first/](http://www.demo.mightyminnow.com/genesis-mobile-first/)
+This is a fork from (https://github.com/MickeyKay/genesis-mobile-first)[https://github.com/MickeyKay/genesis-mobile-first]
+
+Other code included:
+
+* (https://github.com/jlong/sass-bootstrap)[https://github.com/jlong/sass-bootstrap]
+* (https://github.com/teleject/hisrc)[https://github.com/teleject/hisrc]
+* (https://github.com/twittem/wp-bootstrap-navwalker)[https://github.com/twittem/wp-bootstrap-navwalker]
