@@ -21,10 +21,10 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 
 //Register JS
-add_action('wp_enqueue_scripts', 'gemob_enque_scripts');
-function gemob_enque_scripts(){
-    wp_enqueue_script( 'gemob_hisrc', get_stylesheet_directory_uri() . '/js/hisrc/hisrc.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'gemob_js', get_stylesheet_directory_uri() . '/js/gemob.js', array( 'jquery' ), '', true );
+add_action('wp_enqueue_scripts', 'gmfb_enque_scripts');
+function gmfb_enque_scripts(){
+    wp_enqueue_script( 'gmfb_hisrc', get_stylesheet_directory_uri() . '/js/hisrc/hisrc.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'gmfb_js', get_stylesheet_directory_uri() . '/js/gmfb.js', array( 'jquery' ), '', true );
     wp_enqueue_script('bootstrap_js_transition', get_stylesheet_directory_uri() . '/js/transition.js');
     wp_enqueue_script('bootstrap_js_collapse', get_stylesheet_directory_uri() . '/js/collapse.js');
 }
@@ -38,8 +38,8 @@ require_once('wp_bootstrap_navwalker.php');
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 
-add_action( 'genesis_header', 'gboo_do_nav' );
-function gboo_do_nav(  ) {
+add_action( 'genesis_header', 'gmfb_do_nav' );
+function gmfb_do_nav(  ) {
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
