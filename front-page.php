@@ -19,8 +19,14 @@ function gboo_portfolio(){
 <h2>Current Projects</h2>
 <div class="row">
         <div class="col-lg-4">
-          <h3>Safari bug warning!</h3>
-          <p class="text-danger">Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+          <h3>Lorem ipsum dolor sit.</h3>
+          <div class="hisrc">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/6/6f/Earth_Eastern_Hemisphere.jpg" width="200" height="200"
+            data-1x="http://placehold.it/400x400.png"
+            data-2x="http://placehold.it/800x800.png"
+            alt="Celebrating Halloween in style" />
+          </div>
+          <p class="text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, eius, debitis ipsam dolor dolores atque cum reprehenderit nisi omnis aperiam.</p>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-primary" href="#" role="button">View details >></a></p>
         </div>

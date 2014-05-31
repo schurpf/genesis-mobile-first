@@ -19,14 +19,14 @@ add_theme_support( 'custom-background' );
 //* Add support for 3-column footer widgets
 add_theme_support( 'genesis-footer-widgets', 3 );
 
-//register scripts and styles
-add_action( 'init','genesisbootstrap_scripts_styles');
-function genesisbootstrap_scripts_styles() {
-	
-	wp_register_script( 'gboo-twitter-bootstrap-cdn', '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'jquery' ));
 
-	wp_enqueue_script( 'gboo-twitter-bootstrap-cdn');
+//Register JS
+add_action('wp_enqueue_scripts', 'gemob_enque_scripts');
+function gemob_enque_scripts(){
+wp_enqueue_script( 'gemob_hisrc', get_stylesheet_directory_uri() . '/js/hisrc/hisrc.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'gemob_js', get_stylesheet_directory_uri() . '/js/gemob.js', array( 'jquery' ), '', true );
 }
+
 
 /** Remove Header */
 remove_action( 'genesis_header', 'genesis_do_header' );

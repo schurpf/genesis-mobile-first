@@ -1,0 +1,23 @@
+.site-header{
+	margin-bottom: 20px;
+	.wrap{
+		padding: 0px !important;
+	}
+	
+	.navbar-fixed-top {
+		//top: -35px;
+		height: 50px;
+	}
+	
+	.navbar-ex1-collapse ul{
+		background: $navbg;
+	}
+	
+	li a{
+		font-size: 1.2rem;
+	}
+	
+}
+
+.navbar-fixed-top { top: 0px; }
+body.admin-bar .navbar-fixed-top { top: 28px !important; }
