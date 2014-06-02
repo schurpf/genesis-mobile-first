@@ -847,6 +847,13 @@ Site Header
 	width: 100%;
 }
 
+.logo{
+	@extend .text-hide;
+	background: url(http://placehold.it/150x50.jpg) no-repeat;
+	width: 150px;
+	height: 50px;
+}
+
 /* Widget Area
 --------------------------------------------- */
 
@@ -988,10 +995,10 @@ Site Navigation
 
 
 /*
-BGoo nav
+GMFB nav
 ---------------------------------------------------------------------------------------------------- */
 
-@import 'nav';
+/*@import 'nav';*/
 
 /*
 Content Area

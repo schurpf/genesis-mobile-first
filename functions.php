@@ -29,6 +29,8 @@ function gmfb_enque_scripts(){
     wp_enqueue_script('bootstrap_js_collapse', get_stylesheet_directory_uri() . '/js/collapse.js');
 }
 
+// Remove Gensis Admin Menu (http://genesistutorials.com/define-genesis-default-options/)
+remove_theme_support('genesis-admin-menu');
 
 /** Remove Header */
 remove_action( 'genesis_header', 'genesis_do_header' );
@@ -52,7 +54,7 @@ function gmfb_do_nav(  ) {
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+            <a class="navbar-brand logo" href="<?php bloginfo('url'); ?>">
                 <?php bloginfo('name'); ?>
             </a>
         </div>
