@@ -12,9 +12,9 @@
  * @since      1.0.0
  */
 
-add_action('genesis_before_content', 'gboo_portfolio');
+add_action('genesis_before_content', 'gmfb_portfolio');
 
-function gboo_portfolio(){
+function gmfb_portfolio(){
 ?>
 <h2>Current Projects</h2>
 <div class="row">
@@ -43,16 +43,16 @@ function gboo_portfolio(){
       </div>
 <?php
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
-add_action( 'genesis_sidebar', 'gboo_do_sidebar' );
+add_action( 'genesis_sidebar', 'gmfb_do_sidebar' );
 
 }
 
-function gboo_do_sidebar(){
+function gmfb_do_sidebar(){
 
 echo genesis_html5() ? '<section class="widget widget_text">' : '<div class="widget widget_text">';
 	echo '<div class="widget-wrap">';
 ?>	
-		<p>Sidebar gboo</p>
+		<p>Sidebar gmfb</p>
 <?php
 	echo '</div>';
 	echo genesis_html5() ? '</section>' : '</div>';	
