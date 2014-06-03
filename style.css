@@ -8540,7 +8540,37 @@ Site Navigation
 /*
 GMFB nav
 ---------------------------------------------------------------------------------------------------- */
-/*@import 'nav';*/
+/* line 1, ../sass/_nav_gmfb.scss */
+.site-header {
+  margin-bottom: 20px;
+}
+/* line 3, ../sass/_nav_gmfb.scss */
+.site-header .wrap {
+  padding: 0px !important;
+}
+/* line 7, ../sass/_nav_gmfb.scss */
+.site-header .navbar-fixed-top {
+  height: 50px;
+}
+/* line 12, ../sass/_nav_gmfb.scss */
+.site-header .navbar-ex1-collapse ul {
+  background: #222222;
+}
+/* line 16, ../sass/_nav_gmfb.scss */
+.site-header li a {
+  font-size: 1.2rem;
+}
+
+/* line 22, ../sass/_nav_gmfb.scss */
+.navbar-fixed-top {
+  top: 0px;
+}
+
+/* line 23, ../sass/_nav_gmfb.scss */
+body.admin-bar .navbar-fixed-top {
+  top: 28px !important;
+}
+
 /*
 Content Area
 ---------------------------------------------------------------------------------------------------- */

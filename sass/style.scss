@@ -67,7 +67,7 @@ Imports
 
 // Core variables and mixins
 @import "sass-bootstrap/variables";
-@import "variables_gboo";
+@import "variables_gmfb";
 @import "sass-bootstrap/mixins";
 
 // Reset
@@ -998,7 +998,7 @@ Site Navigation
 GMFB nav
 ---------------------------------------------------------------------------------------------------- */
 
-/*@import 'nav';*/
+@import 'nav_gmfb';
 
 /*
 Content Area
