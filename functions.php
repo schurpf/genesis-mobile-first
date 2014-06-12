@@ -82,3 +82,32 @@ remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
 }
 
+
+//Temporary add in CPT (needs to go in plugin later)
+// define( 'ACF_LITE', true );
+include_once('advanced-custom-fields/acf.php');
+ 
+add_action( 'init', 'gmfb_create_cpt' );
+ 
+function gmfb_create_cpt() {
+ 
+   $labels = array(
+    'name' => __( 'Portfolio' ),
+    'singular_name' => __( 'Portfolio' ),
+    'add_new_item' => 'Add title/heading'
+    );
+ 
+    $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'portfolio'),
+    );
+ 
+  register_post_type( 'portfolio', $args);
+}
+
+// if ( function_exists( 'add_image_size' ) ) { 
+//     add_image_size( 'portfolio', ,300 ); //300 pixels wide (and unlimited height)
+//     add_image_size( 'homepage-thumb', 220, 180, true ); //(cropped)
+// }

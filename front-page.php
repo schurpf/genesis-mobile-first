@@ -18,7 +18,46 @@ function gmfb_portfolio(){
 ?>
 <h2>Current Projects</h2>
 <div class="row">
-        <div class="col-lg-4">
+        
+          <?php 
+          $args = array( 'post_type' => 'portfolio', 'posts_per_page' => 3 );
+          $loop = new WP_Query( $args );
+          $count = 0;
+          while ( $loop->have_posts() ) : $loop->the_post(); 
+          $count = $count + 1;
+          if ($count >2){ ?>
+            <div class="hidden-xs hidden-sm col-sm-6 col-md-4"> 
+          <?php }else { ?>
+            <div class="col-sm-6 col-md-4">
+          <?php }?>
+          <?php $portfolio_url = get_field('portfolio_link');
+          if ($portfolio_url == ''){
+            $portfolio_url = '#';
+          }?>
+
+          <a href="<?php echo $portfolio_url;?>"><h3><?php the_title(); ?></h3></a>
+          <?php $portfolio_img_id = get_field('portfolio_logo');
+          if ($portfolio_img_id !='')
+          {
+            $img_src_mobile = wp_get_attachment_image_src($portfolio_img_id, array(200,200));
+            $img_src_desktop = wp_get_attachment_image_src($portfolio_img_id, array(400,400));?>
+          <div class="hisrc">
+            <a href="<?php echo $portfolio_url;?>"><img src="<?php echo $img_src_mobile[0]; ?>" width="200" height="200"
+            data-1x="<?php echo $img_src_desktop[0]; ?>"
+            alt="<?php the_title(); ?>" /></a>
+          </div>
+          <?php } ?>
+          <?php if( get_field('portfolio_date') ): ?>
+            <p class="portfolio-date"><?php the_field('portfolio_date'); ?></p>
+          <?php endif; ?>
+          <?php if( get_field('portfolio_description') ): ?>
+            <p class="portfolio-description"><?php the_field('portfolio_description');?></p>
+          <?php endif; ?>
+          </div>
+          <?php endwhile;?>
+        </div>
+        <div class="row">
+         <div class="col-lg-4">
           <h3>Lorem ipsum dolor sit.</h3>
           <div class="hisrc">
             <img src="http://upload.wikimedia.org/wikipedia/commons/6/6f/Earth_Eastern_Hemisphere.jpg" width="200" height="200"
