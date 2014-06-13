@@ -115,8 +115,8 @@ function gmfb_portfolio_column() {
     add_filter( 'manage_portfolio_posts_columns', 'gmfb_modify_user_table' );
     add_action( 'manage_portfolio_posts_custom_column', 'gmfb_modify_user_table_row', 10 );
 
-    add_filter( 'manage_edit-portfolio_sortable_columns', 'cb_user_extra_sortable_cols' );
-    add_filter( 'request', 'cb_user_extra_orderby' );
+    add_filter( 'manage_edit-portfolio_sortable_columns', 'gmfb_user_extra_sortable_cols' );
+    add_filter( 'request', 'gmfb_user_extra_orderby' );
 }
 
 function gmfb_modify_user_table( $columns ) {
@@ -140,7 +140,7 @@ function gmfb_modify_user_table_row( $column, $post_id ) {
 
 }
 
-function cb_user_extra_sortable_cols( $columns ) {
+function gmfb_user_extra_sortable_cols( $columns ) {
     //var_dump($columns);
     $custom = array(
         // meta column id => sortby value used in query
@@ -149,7 +149,7 @@ function cb_user_extra_sortable_cols( $columns ) {
     return wp_parse_args( $custom, $columns );
 }
 
-function cb_user_extra_orderby( $vars ) {
+function gmfb_user_extra_orderby( $vars ) {
     if ( isset( $vars['orderby'] ) && 'portfolio_weight' == $vars['orderby'] ) {
         $vars = array_merge( $vars, array(
                 'meta_key' => 'portfolio_weight',
@@ -159,6 +159,47 @@ function cb_user_extra_orderby( $vars ) {
     return $vars;
 }
 
+
+// Helper functions
+/**
+ * return an image from attachment ID wrapped in HISRC markup
+ *
+ * @param string  $link          url
+ * @param string  $width_mobile  number
+ * @param string  $height_mobile numer
+ * @return string                html
+ */
+function get_hisrc_img( $img_id, $link='', $width_mobile='200', $height_mobile='200' ) {
+  $out = '';
+  if ( $img_id !='' ) {
+    $img_src_mobile = wp_get_attachment_image_src( $img_id, array( $width_mobile, $height_mobile ) );
+    $img_src_desktop = wp_get_attachment_image_src( $img_id, array( 400, 400 ) );
+    $out .= '<div class="hisrc">';
+    if ( $link != '' ) {
+      $out .= '<a href="'.$link.'"><img src="'.$img_src_mobile[0].'" width="'.$width_mobile.'" height="'.$height_mobile.'"
+              data-1x="'.$img_src_desktop[0].'" alt="'.$post->post_title.'" /></a>';
+    } else {
+      $out .= '<img src="'.$img_src_mobile[0].'" width="'.$width_mobile.'" height="'.$height_mobile.'"
+              data-1x="'.$img_src_desktop[0].'" alt="'.$post->post_title.'" />';
+    }
+    $out .= '</div>';
+  }
+  return $out;
+}
+
+/**
+ * Get portfolio image marked up in HISRC markup
+ *
+ * @param string  $link          url
+ * @param string  $width_mobile  number
+ * @param string  $height_mobile number
+ * @return string                html
+ */
+function get_hisrc_img_portfolio( $link='', $width_mobile='200', $height_mobile='200' ) {
+  global $post;
+  $img_id = get_field( 'portfolio_logo', $post->ID );
+  return get_hisrc_img( $img_id, $link, $width_mobile, $height_mobile );
+}
 
 // if ( function_exists( 'add_image_size' ) ) {
 //     add_image_size( 'portfolio', ,300 ); //300 pixels wide (and unlimited height)

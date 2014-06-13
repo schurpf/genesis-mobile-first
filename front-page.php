@@ -13,47 +13,6 @@
  */
 
 
-// Helper functions
-/**
- * return an image from attachment ID wrapped in HISRC markup
- *
- * @param string  $link          url
- * @param string  $width_mobile  number
- * @param string  $height_mobile numer
- * @return string                html
- */
-function get_hisrc_img( $img_id, $link='', $width_mobile='200', $height_mobile='200' ) {
-  $out = '';
-  if ( $img_id !='' ) {
-    $img_src_mobile = wp_get_attachment_image_src( $img_id, array( $width_mobile, $height_mobile ) );
-    $img_src_desktop = wp_get_attachment_image_src( $img_id, array( 400, 400 ) );
-    $out .= '<div class="hisrc">';
-    if ( $link != '' ) {
-      $out .= '<a href="'.$link.'"><img src="'.$img_src_mobile[0].'" width="'.$width_mobile.'" height="'.$height_mobile.'"
-              data-1x="'.$img_src_desktop[0].'" alt="'.$post->post_title.'" /></a>';
-    } else {
-      $out .= '<img src="'.$img_src_mobile[0].'" width="'.$width_mobile.'" height="'.$height_mobile.'"
-              data-1x="'.$img_src_desktop[0].'" alt="'.$post->post_title.'" />';
-    }
-    $out .= '</div>';
-  }
-  return $out;
-}
-
-/**
- * Get portfolio image marked up in HISRC markup
- *
- * @param string  $link          url
- * @param string  $width_mobile  number
- * @param string  $height_mobile number
- * @return string                html
- */
-function get_hisrc_img_portfolio( $link='', $width_mobile='200', $height_mobile='200' ) {
-  global $post;
-  $img_id = get_field( 'portfolio_logo', $post->ID );
-  return get_hisrc_img( $img_id, $link, $width_mobile, $height_mobile );
-}
-
 add_action( 'genesis_before_content', 'gmfb_portfolio' );
 
 function gmfb_portfolio() {
