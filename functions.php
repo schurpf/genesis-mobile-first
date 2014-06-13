@@ -75,12 +75,14 @@ function gmfb_do_nav(  ) {
 </nav>
 <?php
 
-    /** Remove Title & Description */
-    remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
-    remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
+
 
 
 }
+
+/** Remove Title & Description */
+remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
 
 //Temporary add in CPT (needs to go in plugin later)

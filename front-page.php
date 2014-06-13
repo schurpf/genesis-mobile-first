@@ -60,10 +60,10 @@ function gmfb_portfolio() {
             echo '</div>';
           } ?>
   <?php
-  remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
-  add_action( 'genesis_sidebar', 'gmfb_do_sidebar' );
-
 }
+
+remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+add_action( 'genesis_sidebar', 'gmfb_do_sidebar' );
 
 function gmfb_do_sidebar() {
 
